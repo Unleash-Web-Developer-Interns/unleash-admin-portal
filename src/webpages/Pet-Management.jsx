@@ -200,16 +200,16 @@ const PetManagement = () => {
 
   // Define table columns configuration AFTER the function definitions
   const tableColumns = [
-    { label: "Breed", key: "Pet_Breed", type: "text" },
-    { label: "Category", key: "Pet_Category", type: "text" },
-    { label: "Details", key: null, type: "button", buttonText: "View", onClick: openEditModal },
-    { 
-      label: "Actions", 
-      key: null, 
-      type: "delete", 
-      onClick: (item) => handleDeletePet(item.id) // Extract the ID here before passing to handleDeletePet
-    },
-  ];
+    { label: "Category", key: "Pet_Category", type: "text" },  // Now first position
+  { label: "Breed", key: "Pet_Breed", type: "text" },        // Now second position
+  { label: "Details", key: null, type: "button", buttonText: "View", onClick: openEditModal },
+  { 
+    label: "Actions", 
+    key: null, 
+    type: "delete", // Using the delete type
+    onClick: (item) => handleDeletePet(item.id)
+  },
+];
 
   // Filter data based on search term
   const filteredData = data.filter((item) => {

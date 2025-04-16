@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import PetTypeSelect from './modal-elements/PetTypeSelect';
+import React from 'react';
 import PetNameInput from './modal-elements/PetNameInput';
 import { FaPaw, FaTrash } from 'react-icons/fa';
 import { X, Edit } from 'lucide-react';
@@ -34,7 +33,7 @@ const EditPetModal = ({
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50  bg-gray-900/50 bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900/50 bg-opacity-50">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-md z-10 overflow-hidden">
         {/* Modal Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
@@ -53,7 +52,18 @@ const EditPetModal = ({
 
         {/* Modal Body */}
         <div className="p-4 space-y-4">
-          <PetTypeSelect petDetails={petDetails} setPetDetails={setPetDetails} />
+          {/* PetTypeSelect non-editable display */}
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Pet Category
+            </label>
+            <div className="flex items-center gap-2 p-2 bg-gray-100 border border-gray-300 rounded-md">
+              <FaPaw className="text-gray-500" />
+              <span className="text-gray-700">{petDetails.type}</span>
+            </div>
+
+          </div>
+
           <PetNameInput petDetails={petDetails} setPetDetails={setPetDetails} />
         </div>
 

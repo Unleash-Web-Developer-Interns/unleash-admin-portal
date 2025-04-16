@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { RiExpandUpDownLine } from "react-icons/ri";
-import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
+import { FaCircleCheck, FaCircleXmark, FaTrash } from "react-icons/fa6";
 import { BiSolidEdit } from "react-icons/bi";
 import "./index.scss";
 
@@ -162,6 +162,34 @@ const DataTable = ({
           <div className="flex items-center justify-center">
             <button onClick={() => column.onClick(item)}>
               {actionIcon(item.Status)}
+            </button>
+          </div>
+        );
+      case "delete":
+        return (
+          <div className="flex items-center justify-center">
+            <button 
+              onClick={() => column.onClick(item)}
+              className="text-red-500 hover:text-red-700 transition-colors"
+              title="Delete"
+            >
+              <FaTrash className="text-lg" />
+            </button>
+          </div>
+        );
+      case "icon":
+        return (
+          <div className="flex items-center justify-center">
+            <button 
+              onClick={() => column.onClick(item)}
+              className={`${column.iconColor || "text-gray-500"} hover:opacity-80 transition-colors`}
+              title={column.buttonText || "Action"}
+            >
+              {column.icon === "trash" ? (
+                <FaTrash className="text-lg text-red-500" />
+              ) : (
+                column.customIcon || <BiSolidEdit className="text-lg" />
+              )}
             </button>
           </div>
         );
