@@ -12,7 +12,7 @@ import Product from "./webpages/Product"
 import PetManagement from "./webpages/Pet-Management"
 import Forbidden from "./webpages/errors/403"
 import NotFound from "./webpages/errors/404"
-
+import CancellationandRefund from "./webpages/CancellationandRefund";
 function App() {
   const [accountStatus, setAccountStatus] = useState(false);
   const [accountType, setAccountType] = useState(USER_ROLES.VISITOR);
@@ -62,7 +62,7 @@ function App() {
     },
     {
       path: "/orders/cancellation-and-refund",
-      element: <Navigate to="/404" replace />, // CANCELLATION AND REFUND
+      element: <CancellationandRefund/>, // CANCELLATION AND REFUND
       roles: ALL_AUTHORIZED
     },
     {
